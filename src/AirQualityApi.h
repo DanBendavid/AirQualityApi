@@ -9,7 +9,7 @@
 #include <Client.h>
 
 #define AirQuality_HOST "api.waqi.info"
-#define AirQuality_TOKEN "2c0dcd23ff2fb68a8848d7faf70b2e18050e5d89"
+#define AirQuality_TOKEN "xxxxxxxxxxxxxxxxxxxxxx"
 
 struct AirQualityResponse{
   
