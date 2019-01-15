@@ -40,18 +40,13 @@ void setup() {
   Serial.println(ip);
 }
 
-void printTickerData(String Cityid) {
+void printAirQualityData(String Cityid) {
   Serial.println("---------------------------------");
   Serial.println("Getting ticker data for " + Cityid);
 
+  // Go to AirQuality.com and select the city you would like to check
+  // Need to obtain a Token
 
-  // Ticker unfortunately is not the symbol for some reason.
-  // Go to AirQuality.com and select the coin you would like to check
-  // The ticker name makes up the last part of the URL
-  // e.g: http://AirQuality.com/currencies/bitcoin/ , "bitcoin" is the ticker value
-
-  // Currency is optional, so you can pass only ticker if you want.
-  // Check out the currency drop down on AirQuality.com to get available values
   AirQualityResponse response = api.GetAirQualityInfo(Cityid);
   if (response.error == "") {
     Serial.print("City ID: ");
@@ -108,7 +103,7 @@ void printTickerData(String Cityid) {
 void loop() {
   unsigned long timeNow = millis();
   if ((timeNow > api_due_time))  {
-    printTickerData("@5722");
+    printAirQualityData("@5722");
     api_due_time = timeNow + api_mtbs;
   }
 }
